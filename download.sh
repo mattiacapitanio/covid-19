@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 KAGGLE_URL=sudalairajkumar/covid19-in-italy
 SCRIPTPATH=$(dirname $0)
 

@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 # requirements: python3, pip3, virtualenv
 # sudo apt update 
 # sudo apt install python3 
