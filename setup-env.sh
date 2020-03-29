@@ -1,10 +1,13 @@
 #!/usr/bin/bash
-# requirements: python3, pip3
+# requirements: python3, pip3, virtualenv
+# sudo apt update 
+# sudo apt install python3 
+# sudo apt install python3-pip
+# sudo apt install virtualenv
 
 KAGGLE_API_TOKEN=~/.kaggle/kaggle.json
 
 echo "Setup environment..."
-pip3 install virtualenv
 virtualenv venv
 source venv/bin/activate
 mkdir log
