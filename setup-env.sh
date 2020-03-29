@@ -10,7 +10,6 @@ source venv/bin/activate
 
 echo "Setup environment..."
 mkdir log
-mkdir output
 
 echo "Install kaggle..."
 pip install kaggle
@@ -23,6 +22,9 @@ else
     echo "Error: Kaggle API token file not found!"
     echo "Please create a valid token file under $KAGGLE_API_TOKEN"
     echo "See: https://github.com/Kaggle/kaggle-api"
+    exit 1
 fi
 
-
+echo "Configure cron..."
+crontab -l | { cat; echo "* 3 * * * $(pwd)/download.sh >> $(pwd)/log/crontab.log 2>&1"; } | crontab -
+echo "Done!"
