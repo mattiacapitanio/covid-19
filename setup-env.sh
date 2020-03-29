@@ -1,9 +1,13 @@
 #!/bin/bash
-# requirements: python3, pip3, virtualenv
-# sudo apt update 
-# sudo apt install python3 
-# sudo apt install python3-pip
-# sudo apt install virtualenv
+
+# check requirements
+# sudo apt update && sudo apt install python3 python3-pip virtualenv
+type -P python3 > /dev/null 2>&1
+test $? = 1 && echo "Error: please install Python3" && exit 1
+type -P pip3 > /dev/null 2>&1
+test $? = 1 && echo "Error: please install pip" && exit 1
+type -P virtualenv > /dev/null 2>&1
+test $? = 1 && echo "Error: please install virtualenv" && exit 1
 
 KAGGLE_API_TOKEN=~/.kaggle/kaggle.json
 
