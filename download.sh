@@ -5,6 +5,6 @@ SCRIPTPATH=$(dirname $0)
 date -u +'%Y-%m-%d %H:%M:%S UTC: Download starts...'
 cd $SCRIPTPATH
 source venv/bin/activate
-kaggle datasets download $KAGGLE_URL -p $SCRIPTPATH/output --unzip --force
+kaggle datasets download $KAGGLE_URL -p $SCRIPTPATH/data --unzip --force
 deactivate
 date -u +'%Y-%m-%d %H:%M:%S UTC: Download completed!'
