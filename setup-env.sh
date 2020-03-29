@@ -3,17 +3,16 @@
 
 KAGGLE_API_TOKEN=~/.kaggle/kaggle.json
 
-echo "Create virtualenv..."
+echo "Setup environment..."
 pip3 install virtualenv
 virtualenv venv
 source venv/bin/activate
-
-echo "Setup environment..."
 mkdir log
 
-echo "Install kaggle..."
-pip install kaggle
+echo "Install dependencies..."
+pip3 install -r requirements.txt
 
+echo "Check environment..."
 if test -f "$KAGGLE_API_TOKEN"; then
     echo "Kaggle API token file found!"
     chmod 600 ~/.kaggle/kaggle.json
