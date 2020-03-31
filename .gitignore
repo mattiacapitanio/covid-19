@@ -4,4 +4,4 @@ data/
 *.json
 *.yaml
 .env
-*.ignore
+*.ignore*
