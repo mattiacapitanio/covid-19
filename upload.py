@@ -10,7 +10,7 @@ def update_file(file_name, file_id):
     'id': file_id,
     'parents': [{ 'id': GDRIVE_FOLDER_ID }], 
     'title': file_name
-  })
+  })  
   file.SetContentFile('{}/{}'.format(DATA_DIR, file_name))
   file.Upload()
   print('updated file: {}'.format(file_name))
@@ -18,7 +18,8 @@ def update_file(file_name, file_id):
 def create_file(file_name):
   file = drive.CreateFile({
     'parents': [{'id': GDRIVE_FOLDER_ID}], 
-    'title': file_name})
+    'title': file_name
+  })
   file.SetContentFile('{}/{}'.format(DATA_DIR, file_name))
   file.Upload()
   print('create file: {}'.format(file_name))
@@ -27,7 +28,7 @@ def files_in_dir(path):
   files = []
   for r, d, f in os.walk(path):
       for file in f:
-          if '.csv' in file:
+          if '.zip' in file or '.csv' in file:
               files.append(file)
   return files
 
