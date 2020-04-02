@@ -10,7 +10,7 @@ source venv/bin/activate
 
 for url in "${KAGGLE_URLS[@]}"; do
     date -u +'%Y-%m-%d %H:%M:%S UTC: Download dataset from Kaggle ('${url}')'
-    kaggle datasets download $url -p $SCRIPTPATH/$DATA_DIR --unzip --force
+    kaggle datasets download ${url} -p $SCRIPTPATH/$DATA_DIR --unzip --force
     date -u +'%Y-%m-%d %H:%M:%S UTC: Download completed!'
 done
 
