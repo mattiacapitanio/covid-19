@@ -1,9 +1,11 @@
 import os
+import sys
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 
-GDRIVE_FOLDER_ID = os.getenv('GDRIVE_FOLDER_ID')
-DATA_DIR = os.getenv('DATA_DIR')
+# TODO: add pkg to read params 
+DATA_DIR = sys.argv[1]
+GDRIVE_FOLDER_ID = sys.argv[2]
 
 def update_file(file_name, file_id):
   file = drive.CreateFile({

@@ -32,5 +32,5 @@ else
 fi
 
 echo "Configure cron..."
-crontab -l | { cat; echo "* 3 * * * $(pwd)/transfer-data.sh >> $(pwd)/log/crontab.log 2>&1"; } | crontab -
+crontab -l | { cat; echo "* 11 * * * $(pwd)/transfer-data.sh >> $(pwd)/log/crontab.log 2>&1"; } | crontab -
 echo "Done!"
