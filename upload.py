@@ -14,7 +14,7 @@ def update_file(file_name, file_id):
     'title': file_name
   })  
   file.SetContentFile('{}/{}'.format(DATA_DIR, file_name))
-  file.Upload()
+  file.Upload({'convert': True})
   print('updated file: {}'.format(file_name))
 
 def create_file(file_name):
@@ -23,7 +23,7 @@ def create_file(file_name):
     'title': file_name
   })
   file.SetContentFile('{}/{}'.format(DATA_DIR, file_name))
-  file.Upload()
+  file.Upload({'convert': True})
   print('create file: {}'.format(file_name))
 
 def files_in_dir(path):
@@ -51,8 +51,9 @@ def files_in_gdrive(drive):
 
 def upload(files_to_upload, gdrive_files):
   for f in files_to_upload:
-    if f in gdrive_files:
-      update_file(f, gdrive_files[f])
+    file_name = os.path.splitext(f)[0]
+    if file_name in gdrive_files:
+      update_file(f, gdrive_files[file_name])
     else:
       create_file(f)
 
@@ -65,4 +66,4 @@ else:
   upload(
     files_in_dir(DATA_DIR),
     files_in_gdrive(drive)
-  )
+  ) 
