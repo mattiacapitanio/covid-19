@@ -16,6 +16,9 @@ for (( i=0; i<$len; i++ )); do
     kaggle datasets download ${KAGGLE_URLS[$i]} -p $SCRIPTPATH/$DATA_DIR --unzip --force
     date -u +'%Y-%m-%d %H:%M:%S UTC: Download completed!'
 
+    date -u +'%Y-%m-%d %H:%M:%S UTC: Process dataset ('${KAGGLE_URLS[$i]}')'
+    python3 process.py ${DATA_DIR}
+
     # TODO: add check getting the i element from GDRIVE_FOLDER_IDS 
     date -u +'%Y-%m-%d %H:%M:%S UTC: Upload datasets on Drive'
     python3 upload.py ${DATA_DIR} ${GDRIVE_FOLDER_IDS[$i]}
