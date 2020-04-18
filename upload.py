@@ -2,6 +2,7 @@ import os
 import sys
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
+from time import sleep
 
 # TODO: add pkg to read params 
 DATA_DIR = sys.argv[1]
@@ -56,6 +57,7 @@ def upload(files_to_upload, gdrive_files):
       update_file(f, gdrive_files[file_name])
     else:
       create_file(f)
+    sleep(1)
 
 if GDRIVE_FOLDER_ID is None: 
   print('Error: GDRIVE_FOLDER_ID not defined!')
