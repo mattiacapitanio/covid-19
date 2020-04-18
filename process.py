@@ -6,7 +6,7 @@ DATA_DIR = sys.argv[1]
 
 class Covid19ItalyProcessor():
     INPUT_REGION_FILENAME = 'covid19_italy_region.csv'
-    OUTPUT_REGION_FILENAME = 'covid19_italy_region_aggregated.csv'
+    OUTPUT_REGION_FILENAME = 'covid19_italy_region_groupby_date.csv'
 
     def files_to_process(self): 
         return [
