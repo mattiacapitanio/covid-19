@@ -5,8 +5,8 @@ import os
 DATA_DIR = sys.argv[1]
 
 class Covid19ItalyProcessor():
-    INPUT_REGION_FILENAME = 'covid19_italy_region.csv'
-    OUTPUT_REGION_FILENAME = 'covid19_italy_region_groupby_date.csv'
+    INPUT_REGION_FILENAME = 'dpc-covid19-ita-regioni.csv'
+    OUTPUT_REGION_FILENAME = 'dpc-covid19-ita-regioni_groupby_date.csv'
 
     def files_to_process(self): 
         return [
@@ -18,17 +18,17 @@ class Covid19ItalyProcessor():
 
     def _get_file_region_columns(self):
         return [
-            'Date', 
-            'HospitalizedPatients', 
-            'IntensiveCarePatients', 
-            'TotalHospitalizedPatients', 
-            'HomeConfinement', 
-            'CurrentPositiveCases', 
-            'NewPositiveCases', 
-            'Recovered', 
-            'Deaths', 
-            'TotalPositiveCases', 
-            'TestsPerformed'
+            'data', 
+            'ricoverati_con_sintomi', 
+            'terapia_intensiva', 
+            'totale_ospedalizzati', 
+            'isolamento_domiciliare', 
+            'totale_positivi', 
+            'nuovi_positivi', 
+            'dimessi_guariti', 
+            'deceduti', 
+            'totale_casi', 
+            'casi_testati'
         ]
 
     def _process_file_region(self, file, data_dir):
@@ -37,7 +37,7 @@ class Covid19ItalyProcessor():
             '{}/{}'.format(data_dir, file), 
             usecols=self._get_file_region_columns()
         )
-        group_by_date = df.groupby(df['Date'].str[0:10])
+        group_by_date = df.groupby(df['data'].str[0:10])
         group_by_date.sum().to_csv(
             '{}/{}'.format(data_dir, self.OUTPUT_REGION_FILENAME)
         )
