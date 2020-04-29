@@ -32,7 +32,6 @@ class Covid19ItalyProcessor():
         ]
 
     def _process_file_region(self, file, data_dir):
-        print('Process file: {}'.format(file))
         df = pd.read_csv(
             '{}/{}'.format(data_dir, file), 
             usecols=self._get_file_region_columns()

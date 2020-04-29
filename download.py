@@ -21,10 +21,6 @@ class CurlDownloader():
         c.perform()
         c.close()
         return buffer.getvalue().decode('utf-8')
-        # Body is a byte string.
-        # We have to know the encoding in order to print it to a text file
-        # such as standard output.
-        # print(body.decode('iso-8859-1'))
 
     def perform(self, urls, destination_folder):
         for url in urls:
