@@ -1,4 +1,4 @@
-# Covid-19 project
+# Kaggle to Google Drive (Covid-19 project)
 
 Simple script code for automatically downloading a dataset from Kaggle.
 
